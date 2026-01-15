@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navBar {
+    height: 80px;
+    background-color: #000;
+    color: orange;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.routes {
+    list-style: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.routes li {
+    padding: 10px;
+}
+
+.routes.active {
+    display: grid;
+}
+
+.hamburger button {
+    background: none;
+    border: none;
+    color: orange;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.login {
+    display: none;
+}
+
+.login a button {
+    background-color: #000;
+    border: none;
+    color: orange;
+    transition: transform 0.2s ease, background-color 0.5s ease;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.routes.active ~ .login {
+    display: block;
+    justify-self: center;
+    background-color: #000;
+    padding: 20px;
+}
+
+.navBar:has(.routes.active) {
+    grid-template-columns: auto 1fr auto;
+}
+
+
+@media (min-width: 1024px) {
+    .navBar {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .routes {
+        position: static;
+        display: grid;
+        grid-auto-flow: column;
+        gap: 80px;
+        padding: 0;
+        width: auto;
+        transition: transform 0.2s ease;
+    }
+
+    .routes li:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .login {
+        display: block;
+        justify-self: end;
+    }
+
+    .login a button {
+        background-color: #000;
+        border: none;
+        color: orange;
+        transition: transform 0.2s ease, background-color 0.5s ease;
+        cursor: pointer;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .login a button:hover {
+        transform: scale(1.1);
+        background-color: rgba(207, 118, 15, 0.9);
+        color: #000;
+    }
+}
